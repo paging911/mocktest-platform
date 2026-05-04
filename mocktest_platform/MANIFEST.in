@@ -1,0 +1,7 @@
+recursive-include mocktest_platform *.json
+recursive-include mocktest_platform *.py
+recursive-include mocktest_platform *.js
+recursive-include mocktest_platform *.css
+recursive-include mocktest_platform *.html
+include mocktest_platform/modules.txt
+

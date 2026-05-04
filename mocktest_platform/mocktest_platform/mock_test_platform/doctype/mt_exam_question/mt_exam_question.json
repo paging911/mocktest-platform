@@ -1,0 +1,54 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "creation": "2026-05-04 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "section",
+    "question",
+    "marks",
+    "negative_marks"
+  ],
+  "fields": [
+    {
+      "fieldname": "section",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Section"
+    },
+    {
+      "fieldname": "question",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Question",
+      "options": "MT Question",
+      "reqd": 1
+    },
+    {
+      "default": "4",
+      "fieldname": "marks",
+      "fieldtype": "Float",
+      "in_list_view": 1,
+      "label": "Marks"
+    },
+    {
+      "default": "1",
+      "fieldname": "negative_marks",
+      "fieldtype": "Float",
+      "label": "Negative Marks"
+    }
+  ],
+  "istable": 1,
+  "modified": "2026-05-04 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Mock Test Platform",
+  "name": "MT Exam Question",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}
+

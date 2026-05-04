@@ -1,0 +1,131 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "format:MT-EXAM-.#####",
+  "creation": "2026-05-04 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "exam_title",
+    "status",
+    "course",
+    "batch",
+    "duration_minutes",
+    "max_attempts",
+    "passing_percentage",
+    "shuffle_questions",
+    "show_result_immediately",
+    "sections",
+    "questions"
+  ],
+  "fields": [
+    {
+      "fieldname": "exam_title",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Exam Title",
+      "reqd": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nPublished\nArchived",
+      "reqd": 1
+    },
+    {
+      "fieldname": "course",
+      "fieldtype": "Link",
+      "label": "LMS Course",
+      "options": "LMS Course"
+    },
+    {
+      "fieldname": "batch",
+      "fieldtype": "Link",
+      "label": "LMS Batch",
+      "options": "LMS Batch"
+    },
+    {
+      "default": "180",
+      "fieldname": "duration_minutes",
+      "fieldtype": "Int",
+      "label": "Duration Minutes",
+      "reqd": 1
+    },
+    {
+      "default": "1",
+      "fieldname": "max_attempts",
+      "fieldtype": "Int",
+      "label": "Maximum Attempts",
+      "reqd": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "passing_percentage",
+      "fieldtype": "Float",
+      "label": "Passing Percentage"
+    },
+    {
+      "default": "1",
+      "fieldname": "shuffle_questions",
+      "fieldtype": "Check",
+      "label": "Shuffle Questions"
+    },
+    {
+      "default": "1",
+      "fieldname": "show_result_immediately",
+      "fieldtype": "Check",
+      "label": "Show Result Immediately"
+    },
+    {
+      "fieldname": "sections",
+      "fieldtype": "Table",
+      "label": "Sections",
+      "options": "MT Exam Section"
+    },
+    {
+      "fieldname": "questions",
+      "fieldtype": "Table",
+      "label": "Questions",
+      "options": "MT Exam Question",
+      "reqd": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "links": [],
+  "modified": "2026-05-04 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Mock Test Platform",
+  "name": "MT Exam",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "read": 1,
+      "role": "Instructor",
+      "write": 1
+    },
+    {
+      "read": 1,
+      "role": "LMS Student"
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}
+

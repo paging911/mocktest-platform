@@ -1,0 +1,113 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "format:MT-Q-.#####",
+  "creation": "2026-05-04 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "question_text",
+    "question_type",
+    "subject",
+    "chapter",
+    "topic",
+    "difficulty",
+    "default_marks",
+    "negative_marks",
+    "explanation",
+    "options"
+  ],
+  "fields": [
+    {
+      "fieldname": "question_text",
+      "fieldtype": "Text Editor",
+      "in_list_view": 1,
+      "label": "Question Text",
+      "reqd": 1
+    },
+    {
+      "default": "Single Choice",
+      "fieldname": "question_type",
+      "fieldtype": "Select",
+      "label": "Question Type",
+      "options": "Single Choice",
+      "reqd": 1
+    },
+    {
+      "fieldname": "subject",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Subject"
+    },
+    {
+      "fieldname": "chapter",
+      "fieldtype": "Data",
+      "label": "Chapter"
+    },
+    {
+      "fieldname": "topic",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Topic"
+    },
+    {
+      "fieldname": "difficulty",
+      "fieldtype": "Select",
+      "label": "Difficulty",
+      "options": "\nEasy\nMedium\nHard"
+    },
+    {
+      "default": "4",
+      "fieldname": "default_marks",
+      "fieldtype": "Float",
+      "label": "Default Marks"
+    },
+    {
+      "default": "1",
+      "fieldname": "negative_marks",
+      "fieldtype": "Float",
+      "label": "Negative Marks"
+    },
+    {
+      "fieldname": "explanation",
+      "fieldtype": "Text Editor",
+      "label": "Explanation"
+    },
+    {
+      "fieldname": "options",
+      "fieldtype": "Table",
+      "label": "Options",
+      "options": "MT Question Option",
+      "reqd": 1
+    }
+  ],
+  "modified": "2026-05-04 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Mock Test Platform",
+  "name": "MT Question",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "read": 1,
+      "role": "Instructor",
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}
+

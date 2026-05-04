@@ -1,0 +1,60 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "creation": "2026-05-04 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "section_name",
+    "display_order",
+    "question_count",
+    "marks_per_question",
+    "negative_marks"
+  ],
+  "fields": [
+    {
+      "fieldname": "section_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Section Name",
+      "reqd": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "display_order",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Display Order"
+    },
+    {
+      "default": "0",
+      "fieldname": "question_count",
+      "fieldtype": "Int",
+      "label": "Question Count"
+    },
+    {
+      "default": "4",
+      "fieldname": "marks_per_question",
+      "fieldtype": "Float",
+      "label": "Marks Per Question"
+    },
+    {
+      "default": "1",
+      "fieldname": "negative_marks",
+      "fieldtype": "Float",
+      "label": "Negative Marks"
+    }
+  ],
+  "istable": 1,
+  "modified": "2026-05-04 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Mock Test Platform",
+  "name": "MT Exam Section",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}
+
