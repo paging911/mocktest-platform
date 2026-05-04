@@ -144,7 +144,7 @@ function submitAttempt(skipConfirm = false) {
       callback(response) {
         const result = response.message;
         frappe.msgprint(`Score: ${result.total_score} / ${result.max_score}`);
-        window.location.href = `/mock-test-result?attempt=${attemptName}`;
+        window.location.href = `/mock-test-result/${attemptName}`;
       }
     });
   };

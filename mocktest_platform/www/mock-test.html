@@ -1,0 +1,114 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+      <div class="mb-4">
+        <a href="/mock-tests" class="text-muted small">Back to mock tests</a>
+        <h1 class="h3 mt-2 mb-1">{{ exam.exam_title }}</h1>
+        <div class="text-muted">
+          {{ question_count }} questions | {{ exam.duration_minutes }} minutes | {{ max_score }} marks
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="h5">Instructions</h2>
+          <ul class="mb-0">
+            <li>The timer starts immediately after you click Start Test.</li>
+            <li>Use Save and Next to store each answer.</li>
+            <li>You can mark questions for review and return to them before submission.</li>
+            <li>The test will auto-submit when the timer ends.</li>
+            <li>Wrong answers may carry negative marks depending on the exam configuration.</li>
+          </ul>
+        </div>
+      </div>
+
+      {% if exam.sections %}
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="h5">Sections</h2>
+            <div class="table-responsive">
+              <table class="table table-sm mb-0">
+                <thead>
+                  <tr>
+                    <th>Section</th>
+                    <th>Questions</th>
+                    <th>Marks</th>
+                    <th>Negative Marks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for section in exam.sections %}
+                    <tr>
+                      <td>{{ section.section_name }}</td>
+                      <td>{{ section.question_count }}</td>
+                      <td>{{ section.marks_per_question }}</td>
+                      <td>{{ section.negative_marks }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if previous_attempts %}
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="h5">Previous Attempts</h2>
+            <div class="table-responsive">
+              <table class="table table-sm mb-0">
+                <thead>
+                  <tr>
+                    <th>Attempt</th>
+                    <th>Status</th>
+                    <th>Score</th>
+                    <th>Percentage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for attempt in previous_attempts %}
+                    <tr>
+                      <td>
+                        {% if attempt.status == "Submitted" %}
+                          <a href="/mock-test-result/{{ attempt.name }}">{{ attempt.name }}</a>
+                        {% else %}
+                          <a href="/mock-test-attempt/{{ attempt.name }}">{{ attempt.name }}</a>
+                        {% endif %}
+                      </td>
+                      <td>{{ attempt.status }}</td>
+                      <td>{{ attempt.total_score }} / {{ attempt.max_score }}</td>
+                      <td>{{ "%.2f"|format(attempt.percentage or 0) }}%</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      <button class="btn btn-primary" onclick="startMockTest('{{ exam.name }}')">
+        Start Test
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+function startMockTest(exam) {
+  frappe.call({
+    method: "mocktest_platform.api.start_attempt",
+    args: { exam },
+    callback(response) {
+      if (response.message) {
+        window.location.href = `/mock-test-attempt/${response.message}`;
+      }
+    }
+  });
+}
+</script>
+{% endblock %}

@@ -188,6 +188,30 @@ def get_result(attempt):
 
 
 def _result_payload(attempt_doc):
+    section_map = {}
+
+    for answer in attempt_doc.answers:
+        section = answer.section or "General"
+        if section not in section_map:
+            section_map[section] = {
+                "section": section,
+                "score": 0,
+                "max_score": 0,
+                "correct": 0,
+                "wrong": 0,
+                "skipped": 0,
+            }
+
+        section_map[section]["score"] += answer.score or 0
+        section_map[section]["max_score"] += answer.marks or 0
+
+        if answer.status == "Correct":
+            section_map[section]["correct"] += 1
+        elif answer.status == "Wrong":
+            section_map[section]["wrong"] += 1
+        elif answer.status == "Skipped":
+            section_map[section]["skipped"] += 1
+
     return {
         "attempt": attempt_doc.name,
         "exam": attempt_doc.exam,
@@ -199,5 +223,5 @@ def _result_payload(attempt_doc):
         "wrong_count": attempt_doc.wrong_count,
         "skipped_count": attempt_doc.skipped_count,
         "status": attempt_doc.status,
+        "section_summary": list(section_map.values()),
     }
-

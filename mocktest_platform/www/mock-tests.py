@@ -12,8 +12,9 @@ def get_context(context):
             "duration_minutes",
             "max_attempts",
             "passing_percentage",
+            "course",
+            "batch",
         ],
         order_by="modified desc",
     )
     return context
-
