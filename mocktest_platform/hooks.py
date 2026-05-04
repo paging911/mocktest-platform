@@ -10,8 +10,8 @@ doctype_js = {
 }
 
 website_route_rules = [
-    {"from_route": "/mock-tests", "to_route": "mock-tests"},
-    {"from_route": "/mock-test/<exam>", "to_route": "mock-test"},
-    {"from_route": "/mock-test-attempt/<attempt>", "to_route": "mock-test-attempt"},
-    {"from_route": "/mock-test-result/<attempt>", "to_route": "mock-test-result"},
+    {"from_route": "/mock-tests", "to_route": "mock_tests"},
+    {"from_route": "/mock-test/<exam>", "to_route": "mock_test"},
+    {"from_route": "/mock-test-attempt/<attempt>", "to_route": "mock_test_attempt"},
+    {"from_route": "/mock-test-result/<attempt>", "to_route": "mock_test_result"},
 ]

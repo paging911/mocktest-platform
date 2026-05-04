@@ -20,3 +20,4 @@ def get_context(context):
 
     context.result = frappe.call("mocktest_platform.api.get_result", attempt=attempt)
     return context
+

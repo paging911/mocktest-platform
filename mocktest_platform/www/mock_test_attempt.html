@@ -64,7 +64,7 @@ function loadAttempt() {
 function renderQuestion() {
   const question = attemptData.questions[currentIndex];
   markedForReview = Boolean(question.marked_for_review);
-  document.getElementById("question-meta").textContent = `${question.section || "General"} · Question ${currentIndex + 1} of ${attemptData.questions.length}`;
+  document.getElementById("question-meta").textContent = `${question.section || "General"} | Question ${currentIndex + 1} of ${attemptData.questions.length}`;
   document.getElementById("question-text").innerHTML = question.question_text;
   document.getElementById("review-btn").textContent = markedForReview ? "Unmark Review" : "Mark for Review";
 
@@ -174,3 +174,4 @@ function startTimer() {
 }
 </script>
 {% endblock %}
+
