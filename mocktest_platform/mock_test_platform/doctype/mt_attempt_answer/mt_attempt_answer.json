@@ -1,0 +1,91 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "creation": "2026-05-04 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "question",
+    "section",
+    "selected_option",
+    "marked_for_review",
+    "status",
+    "marks",
+    "negative_marks",
+    "is_correct",
+    "score"
+  ],
+  "fields": [
+    {
+      "fieldname": "question",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Question",
+      "options": "MT Question",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Section"
+    },
+    {
+      "fieldname": "selected_option",
+      "fieldtype": "Data",
+      "label": "Selected Option"
+    },
+    {
+      "default": "0",
+      "fieldname": "marked_for_review",
+      "fieldtype": "Check",
+      "label": "Marked for Review"
+    },
+    {
+      "default": "Not Answered",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Not Answered\nAnswered\nMarked for Review\nCorrect\nWrong\nSkipped"
+    },
+    {
+      "default": "0",
+      "fieldname": "marks",
+      "fieldtype": "Float",
+      "label": "Marks"
+    },
+    {
+      "default": "0",
+      "fieldname": "negative_marks",
+      "fieldtype": "Float",
+      "label": "Negative Marks"
+    },
+    {
+      "default": "0",
+      "fieldname": "is_correct",
+      "fieldtype": "Check",
+      "label": "Is Correct",
+      "read_only": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "score",
+      "fieldtype": "Float",
+      "label": "Score",
+      "read_only": 1
+    }
+  ],
+  "istable": 1,
+  "modified": "2026-05-04 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Mock Test Platform",
+  "name": "MT Attempt Answer",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}
+
